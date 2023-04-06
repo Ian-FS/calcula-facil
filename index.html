@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <title>Calcula Fácil</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <h2>Calcule a taxa de compressão</h2>
+      </div>
+
+      <form id="form" class="form">
+        <div class="form-control">
+          <label for="carcass-footage">Metragem total da carcaça</label>
+          <input
+            type="text"
+            id="carcass-footage"
+            placeholder="Insira a metragem"
+          />
+          <i class="fas fa-exclamation-circle"></i>
+          <i class="fas fa-check-circle"></i>
+          <small>Metragem obrigatória</small>
+
+          <label for="ref-extrusion"
+            >Metragem da extrusão no ponto de referencia</label
+          ><input
+            type="text"
+            id="ref-extrusion"
+            placeholder="Insira a metragem"
+          />
+          <i class="fas fa-exclamation-circle"></i>
+          <i class="fas fa-check-circle"></i>
+          <small>Metragem obrigatória</small>
+
+          <label for="ref-carcass"
+            >Metragem da carcaça no ponto de referencia</label
+          ><input
+            type="text"
+            id="ref-carcass"
+            placeholder="Insira a metragem"
+          />
+          <i class="fas fa-exclamation-circle"></i>
+          <i class="fas fa-check-circle"></i>
+          <small>Metragem obrigatória</small>
+
+          <label for="invalid-extrusion"
+            >Metragem inválida inicial da extrusão
+          </label>
+          <input
+            type="text"
+            id="invalid-extrusion"
+            placeholder="Insira a metragem"
+          />
+          <i class="fas fa-exclamation-circle"></i>
+          <i class="fas fa-check-circle"></i>
+          <small>Metragem obrigatória</small>
+          <label for="check">Carcaça em sentido crescente</label>
+          <input class="check" id="check" type="checkbox" />
+        </div>
+
+        <button type="submit">Calcular</button>
+      </form>
+    </div>
+    <script type="module" src="/main.js"></script>
+    <script
+      src="https://kit.fontawesome.com/0728c11181.js"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
