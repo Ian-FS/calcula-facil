@@ -31,6 +31,15 @@ body {
     margin-bottom: 10px;
     padding-bottom: 20px;
     position: relative;
+
+    .check {
+      display: flex;
+      margin-bottom: 10px;
+      gap: 15px;
+      input {
+        width: 20px;
+      }
+    }
     label {
       display: inline-block;
       margin-bottom: 5px;
@@ -60,10 +69,7 @@ body {
     }
   }
 }
-.check {
-  position: absolute;
-  left: -221px;
-}
+
 button {
   width: 100%;
   background-color: crimson;
