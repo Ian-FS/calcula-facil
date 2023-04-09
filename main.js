@@ -11,10 +11,10 @@ const form = document.querySelector("form");
 
 console.log(metragemTotalCarcaca.innerHTML);
 
-botao.addEventListener("click", (e) => {
-  e.preventDefault();
-
-  if (!carcacaSentido.checked) {
+form.addEventListener("click", (e) => {
+  if (e.target.id == "button" && !carcacaSentido.checked) {
+    e.preventDefault();
+  } else if (e.target.id == "button" && carcacaSentido.checked) {
     const valorCarcaca =
       parseFloat(metragemTotalCarcaca.value) -
       parseFloat(carcacaPontoRef.value) -
@@ -22,15 +22,14 @@ botao.addEventListener("click", (e) => {
     const taxaCompressao =
       100 - 100 / (valorCarcaca / parseFloat(extrusaoPontoRef.value));
     console.log(taxaCompressao.toFixed(2) + "%");
-  } else {
-    metragemTotalCarcaca.style.display = "none";
-    invalidoExtrusao.style.display = "none";
-
-    const prodIdeal = parseFloat(carcacaPontoRef.value);
-    const prodReal = parseFloat(extrusaoPontoRef.value);
-
-    const taxaCompressao = 100 * (prodIdeal / prodReal);
-
-    console.log(taxaCompressao.toFixed(2) + "%");
+  }
+  function checked() {
+    if (!e.target.checked && e.target.id == "check") {
+      document.getElementById("carcass-box").style.display = "block";
+      document.getElementById("invalid-box").style.display = "block";
+    } else if (e.target.checked && e.target.id == "check") {
+      document.getElementById("carcass-box").style.display = "none";
+      document.getElementById("invalid-box").style.display = "none";
+    }
   }
 });
