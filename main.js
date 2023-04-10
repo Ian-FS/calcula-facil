@@ -1,35 +1,55 @@
 import "./style.scss";
 
-const metragemTotalCarcaca = document.getElementById("carcass-footage");
-const extrusaoPontoRef = document.getElementById("ref-extrusion");
-const carcacaPontoRef = document.getElementById("ref-carcass");
-const invalidoExtrusao = document.getElementById("invalid-extrusion");
-const carcacaSentido = document.getElementById("check");
-const botao = document.getElementById("button");
+const check = document.getElementById("check");
+const button = document.getElementById("button");
 
-const form = document.querySelector("form");
+check.onclick = removeInput;
+button.onclick = calculaTaxa;
 
-console.log(metragemTotalCarcaca.innerHTML);
+function removeInput() {
+  const carcassBox = document.getElementById("carcass-box");
 
-form.addEventListener("click", (e) => {
-  if (e.target.id == "button" && !carcacaSentido.checked) {
-    e.preventDefault();
-  } else if (e.target.id == "button" && carcacaSentido.checked) {
-    const valorCarcaca =
-      parseFloat(metragemTotalCarcaca.value) -
-      parseFloat(carcacaPontoRef.value) -
-      parseFloat(invalidoExtrusao.value);
-    const taxaCompressao =
-      100 - 100 / (valorCarcaca / parseFloat(extrusaoPontoRef.value));
-    console.log(taxaCompressao.toFixed(2) + "%");
+  if (check.checked) {
+    carcassBox.style.display = "none";
+  } else {
+    carcassBox.style.display = "inline-block";
   }
-  function checked() {
-    if (!e.target.checked && e.target.id == "check") {
-      document.getElementById("carcass-box").style.display = "block";
-      document.getElementById("invalid-box").style.display = "block";
-    } else if (e.target.checked && e.target.id == "check") {
-      document.getElementById("carcass-box").style.display = "none";
-      document.getElementById("invalid-box").style.display = "none";
-    }
+}
+
+function calculaTaxa() {
+  event.preventDefault();
+  let taxaCompress = 0;
+
+  const totalCarcass = parseFloat(
+    document.getElementById("carcass-footage").value
+  );
+  const refExtrusion = parseFloat(
+    document.getElementById("ref-extrusion").value
+  );
+
+  const refCarcass = parseFloat(document.getElementById("ref-carcass").value);
+
+  const invalidExtrusion = parseFloat(
+    document.getElementById("invalid-extrusion").value
+  );
+
+  if (check.checked) {
+    const validCarcass = refCarcass - invalidExtrusion;
+    taxaCompress = 100 - 100 / (validCarcass / refExtrusion);
+    console.log(
+      `Taxa de compressão de ${taxaCompress.toFixed(1)}%, equivalente a ${(
+        (validCarcass * taxaCompress) /
+        100
+      ).toFixed(1)} metros de tubo.`
+    );
+  } else {
+    const validCarcass = totalCarcass - refCarcass - invalidExtrusion;
+    taxaCompress = 100 - 100 / (validCarcass / refExtrusion);
+    console.log(
+      `Taxa de compressão de ${taxaCompress.toFixed(1)}%, equivalente a ${(
+        (validCarcass * taxaCompress) /
+        100
+      ).toFixed(2)} metros de tubo.`
+    );
   }
-});
+}
