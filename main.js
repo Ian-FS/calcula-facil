@@ -4,7 +4,9 @@ const check = document.getElementById("check");
 const button = document.getElementById("button");
 
 check.onclick = removeInput;
-button.onclick = calculaTaxa;
+button.addEventListener("click", (e) => {
+  checkInput(e);
+});
 
 function removeInput() {
   const carcassBox = document.getElementById("carcass-box");
@@ -17,7 +19,6 @@ function removeInput() {
 }
 
 function calculaTaxa() {
-  event.preventDefault();
   let taxaCompress = 0;
 
   const totalCarcass = parseFloat(
@@ -51,5 +52,29 @@ function calculaTaxa() {
         100
       ).toFixed(2)} metros de tubo.`
     );
+  }
+}
+function checkInput(ev) {
+  ev.preventDefault();
+  if (check.checked) {
+  }
+  let i;
+  for (let i = 1; i < 5; i++) {
+    if (ev.target.parentNode[i].value === "") {
+      setError();
+    }
+  }
+  // checkParent(i)
+  calculaTaxa();
+}
+
+function setError(e) {
+  console.log("faltou preencher");
+}
+function checkParent(i) {
+  if (check.checked) {
+    return (i = 2);
+  } else {
+    return (i = 1);
   }
 }
