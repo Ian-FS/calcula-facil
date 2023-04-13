@@ -5,6 +5,7 @@ const button = document.getElementById("button");
 
 check.onclick = removeInput;
 button.addEventListener("click", (e) => {
+  console.log(e.target.parentNode);
   checkInput(e);
 });
 
@@ -56,25 +57,11 @@ function calculaTaxa() {
 }
 function checkInput(ev) {
   ev.preventDefault();
+
   if (check.checked) {
   }
-  let i;
-  for (let i = 1; i < 5; i++) {
-    if (ev.target.parentNode[i].value === "") {
-      setError();
-    }
-  }
-  // checkParent(i)
-  calculaTaxa();
 }
 
 function setError(e) {
   console.log("faltou preencher");
-}
-function checkParent(i) {
-  if (check.checked) {
-    return (i = 2);
-  } else {
-    return (i = 1);
-  }
 }

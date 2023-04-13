@@ -29,47 +29,45 @@ body {
   padding: 20px;
   &-control {
     margin-bottom: 10px;
-    padding-bottom: 20px;
     position: relative;
-
-    .check {
-      display: flex;
-      margin-bottom: 10px;
-      gap: 15px;
-      input {
-        width: 20px;
-      }
-    }
-    .carcass-box {
-      width: 100%;
-    }
-    label {
-      display: inline-block;
-      margin-bottom: 5px;
-      font-weight: 500;
-      font-size: 18px;
-    }
+  }
+  .check {
+    display: flex;
+    margin-bottom: 10px;
+    gap: 15px;
     input {
-      border: 2px solid #f0f0f0;
-      border-radius: 10px;
-      padding: 10px;
-      display: block;
-      font-size: 16px;
-      width: 100%;
-      margin-bottom: 10px;
+      width: 20px;
     }
-    i {
-      position: absolute;
-      top: 45px;
-      right: 10px;
-      visibility: hidden;
-    }
-    small {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      visibility: hidden;
-    }
+  }
+  .carcass-box {
+    width: 100%;
+  }
+  label {
+    display: inline-block;
+    margin-bottom: 5px;
+    font-weight: 500;
+    font-size: 18px;
+  }
+  input {
+    border: 2px solid #f0f0f0;
+    border-radius: 10px;
+    padding: 10px;
+    display: block;
+    font-size: 16px;
+    width: 100%;
+    margin-bottom: 10px;
+  }
+  i {
+    position: absolute;
+    top: 45px;
+    right: 10px;
+    visibility: hidden;
+  }
+  small {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    visibility: hidden;
   }
 }
 
@@ -82,4 +80,13 @@ button {
   padding: 10px;
   color: #eee;
   font-weight: bold;
+}
+.form-control.error {
+  input {
+    border-color: #e74c3c;
+  }
+  i.fa-exclamation-circle {
+    color: #e74c3c;
+    visibility: visible;
+  }
 }
