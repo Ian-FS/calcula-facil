@@ -65,9 +65,11 @@ body {
   }
   small {
     position: absolute;
-    bottom: 0;
+    bottom: 5px;
+    color: #e74c3c;
     left: 0;
     visibility: hidden;
+    font-weight: 600;
   }
 }
 

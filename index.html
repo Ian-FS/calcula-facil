@@ -19,25 +19,14 @@
 
       <form id="form" class="form">
         <div class="check">
-          <label for="check">Carcaça em sentido crescente</label>
-          <input id="check" type="checkbox" />
+          <label for="check-box">Carcaça em sentido crescente</label>
+          <input id="check-box" type="checkbox" />
         </div>
         <div id="carcass-box" class="form-control">
-          <label for="carcass-footage">Total Carcaça</label>
+          <label for="carcass-input">Total Carcaça</label>
           <input
             type="text"
-            id="carcass-footage"
-            placeholder="Insira a metragem"
-          />
-          <i class="fas fa-exclamation-circle"></i>
-          <i class="fas fa-check-circle"></i>
-          <small>Metragem obrigatória</small>
-        </div>
-        <div class="form-control error">
-          <label for="ref-extrusion-box">Ponto de referência da extrusão</label
-          ><input
-            type="text"
-            id="ref-extrusion"
+            id="carcass-input"
             placeholder="Insira a metragem"
           />
           <i class="fas fa-exclamation-circle"></i>
@@ -45,10 +34,22 @@
           <small>Metragem obrigatória</small>
         </div>
         <div class="form-control">
-          <label for="ref-carcass">Ponto de referência da carcaça</label
+          <label for="ref-extrusion-input"
+            >Ponto de referência da extrusão</label
           ><input
             type="text"
-            id="ref-carcass"
+            id="ref-extrusion-input"
+            placeholder="Insira a metragem"
+          />
+          <i class="fas fa-exclamation-circle"></i>
+          <i class="fas fa-check-circle"></i>
+          <small>Metragem obrigatória</small>
+        </div>
+        <div class="form-control">
+          <label for="ref-carcass-input">Ponto de referência da carcaça</label
+          ><input
+            type="text"
+            id="ref-carcass-input"
             placeholder="Insira a metragem"
           />
           <i class="fas fa-exclamation-circle"></i>
@@ -56,17 +57,17 @@
           <small>Metragem obrigatória</small>
         </div>
         <div id="form-control">
-          <label for="invalid-extrusion">Inválido da extrusão </label>
+          <label for="invalid-extrusion-input">Inválido da extrusão </label>
           <input
             type="text"
-            id="invalid-extrusion"
+            id="invalid-extrusion-input"
             placeholder="Insira a metragem"
           />
           <i class="fas fa-exclamation-circle"></i>
           <i class="fas fa-check-circle"></i>
           <small>Metragem obrigatória</small>
         </div>
-        <button id="button" type="submit">Calcular</button>
+        <button id="button-form" type="submit">Calcular</button>
       </form>
     </div>
     <script type="module" src="/main.js"></script>
