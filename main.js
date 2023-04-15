@@ -21,7 +21,7 @@ function removeInput() {
 }
 
 function calculaTaxa() {
-  let taxaCompress = 0;
+  let taxCompress = 0;
 
   const totalCarcass = parseFloat(document.getElementById("carcass-input").value);
   const refExtrusion = parseFloat(document.getElementById("ref-extrusion-input").value);
@@ -30,23 +30,37 @@ function calculaTaxa() {
 
   const invalidExtrusion = parseFloat(document.getElementById("invalid-extrusion-input").value);
 
+  const resultCompress = document.getElementById("result-compress");
+  const resultComplement = document.getElementById("result-complement");
+
   if (check.checked) {
     const validCarcass = refCarcass - invalidExtrusion;
-    taxaCompress = 100 - 100 / (validCarcass / refExtrusion);
+    taxCompress = 100 - 100 / (validCarcass / refExtrusion);
+
+    resultCompress.innerHTML = `${taxCompress.toFixed(1)}%`;
+    resultComplement.innerHTML = `*aproximadamente ${((validCarcass * taxCompress) / 100).toFixed(1)} metros de tubo.`;
+
     console.log(
-      `Taxa de compressão de ${taxaCompress.toFixed(1)}%, equivalente a ${((validCarcass * taxaCompress) / 100).toFixed(
+      `Taxa de compressão de ${taxCompress.toFixed(1)}%, equivalente a ${((validCarcass * taxCompress) / 100).toFixed(
         1
       )} metros de tubo.`
     );
   } else {
     const validCarcass = totalCarcass - refCarcass - invalidExtrusion;
-    taxaCompress = 100 - 100 / (validCarcass / refExtrusion);
+    taxCompress = 100 - 100 / (validCarcass / refExtrusion);
+
+    resultCompress.innerHTML = `${taxCompress.toFixed(1)}%`;
+    resultComplement.innerHTML = `*aproximadamente ${((validCarcass * taxCompress) / 100).toFixed(1)} metros de tubo.`;
+
     console.log(
-      `Taxa de compressão de ${taxaCompress.toFixed(1)}%, equivalente a ${((validCarcass * taxaCompress) / 100).toFixed(
+      `Taxa de compressão de ${taxCompress.toFixed(1)}%, equivalente a ${((validCarcass * taxCompress) / 100).toFixed(
         2
       )} metros de tubo.`
     );
   }
+  document.getElementById("header").style.display = "none";
+  document.getElementById("form").style.display = "none";
+  document.getElementById("result-container").style.display = "flex";
 }
 
 function checkInput() {
@@ -56,6 +70,8 @@ function checkInput() {
   const invalidExtrusionInput = document.getElementById("invalid-extrusion-input");
 
   const listInput = [carcassInput, refExtrusionInput, refCarcassInput, invalidExtrusionInput];
+
+  form.style.rowGap = "0px";
 
   if (carcassInput.value === "" && !check.checked) {
     setError(carcassInput, "Metragem total da Carcaça necessária");
