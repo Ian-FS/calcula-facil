@@ -83,7 +83,10 @@ body {
 .result-container {
   display: none;
   flex-direction: column;
-  // padding: 25px;
+  .result-header {
+    padding: 10px 25px;
+    background-color: #eee;
+  }
   .result-box {
     display: flex;
     flex-direction: column;
