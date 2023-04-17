@@ -87,11 +87,11 @@ body {
   .result-header {
     padding: 10px 25px;
     background-color: #eee;
+    font-size: 15px;
   }
   .result-box {
     display: flex;
     flex-direction: column;
-    border-radius: 10px;
     align-items: stretch;
     border: solid 2px #eee;
     padding: 10px 25px;
@@ -101,7 +101,6 @@ body {
       border-radius: 10px 10px 0px 0px;
     }
     .result-compress {
-      border-radius: 5px;
       padding: 5px;
     }
     .result-complement {

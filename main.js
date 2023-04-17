@@ -37,7 +37,7 @@ function calculaTaxa() {
     const validCarcass = refCarcass - invalidExtrusion;
     taxCompress = 100 - 100 / (validCarcass / refExtrusion);
 
-    resultCompress.innerHTML = `${taxCompress.toFixed(1)}%`;
+    resultCompress.innerHTML = `Compressão de ${taxCompress.toFixed(1)}%`;
     resultComplement.innerHTML = `*equivalente a ${((validCarcass * taxCompress) / 100).toFixed(
       1
     )} metros de tubo comprimido.`;
@@ -51,7 +51,7 @@ function calculaTaxa() {
     const validCarcass = totalCarcass - refCarcass - invalidExtrusion;
     taxCompress = 100 - 100 / (validCarcass / refExtrusion);
 
-    resultCompress.innerHTML = `${taxCompress.toFixed(1)}%`;
+    resultCompress.innerHTML = `Compressão de ${taxCompress.toFixed(1)}%`;
     resultComplement.innerHTML = `*equivalente a ${((validCarcass * taxCompress) / 100).toFixed(
       1
     )} metros de tubo comprimido.`;
