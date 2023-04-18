@@ -104,9 +104,8 @@ body {
   .result-box {
     display: flex;
     flex-direction: column;
-    align-items: stretch;
-    border: solid 2px #eee;
     padding: 10px 25px;
+    text-align: end;
 
     .tax-compress {
       background-color: #eee;
