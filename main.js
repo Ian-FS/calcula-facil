@@ -2,13 +2,22 @@ import "./style.scss";
 
 const check = document.getElementById("check-box");
 const form = document.getElementById("form");
+const arrowBack = document.getElementById("arrow-back");
 
 check.onclick = removeInput;
+arrowBack.onclick = backForm;
+
 form.addEventListener("submit", (e) => {
   e.preventDefault();
 
   checkInput();
 });
+
+function backForm() {
+  document.getElementById("header").style.display = "flex";
+  document.getElementById("form").style.display = "flex";
+  document.getElementById("result-container").style.display = "none";
+}
 
 function removeInput() {
   const carcassBox = document.getElementById("carcass-box");

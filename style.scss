@@ -85,9 +85,21 @@ body {
   display: none;
   flex-direction: column;
   .result-header {
+    display: flex;
     padding: 10px 25px;
     background-color: #eee;
     font-size: 15px;
+    justify-content: space-between;
+    align-items: center;
+    img {
+      transform: rotate(-0.5turn);
+      width: 40px;
+      &:hover {
+        cursor: pointer;
+        opacity: 90%;
+        transition: 0s;
+      }
+    }
   }
   .result-box {
     display: flex;
