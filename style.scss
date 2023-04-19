@@ -149,3 +149,14 @@ input[type="number"]::-webkit-outer-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
+
+@media screen and (max-width: 420px) {
+  .result-header {
+    h2 {
+      font-size: 18px;
+    }
+    img {
+      width: 32px;
+    }
+  }
+}
