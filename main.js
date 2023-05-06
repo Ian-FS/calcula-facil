@@ -4,7 +4,7 @@ const check = document.getElementById("check-box");
 const form = document.getElementById("form");
 const arrowBack = document.getElementById("arrow-back");
 
-check.onclick = removeInput;
+// check.onclick = removeInput;
 arrowBack.onclick = backForm;
 
 form.addEventListener("submit", (e) => {
@@ -19,15 +19,15 @@ function backForm() {
   document.getElementById("result-container").style.display = "none";
 }
 
-function removeInput() {
-  const carcassBox = document.getElementById("carcass-box");
+// function removeInput() {
+//   const carcassBox = document.getElementById("carcass-box");
 
-  if (check.checked) {
-    carcassBox.style.display = "none";
-  } else {
-    carcassBox.style.display = "inline-block";
-  }
-}
+//   if (check.checked) {
+//     carcassBox.style.display = "none";
+//   } else {
+//     carcassBox.style.display = "inline-block";
+//   }
+// }
 
 function calculaTaxa() {
   let taxCompress = 0;
@@ -41,34 +41,44 @@ function calculaTaxa() {
 
   const resultCompress = document.getElementById("result-compress");
   const resultComplement = document.getElementById("result-complement");
+  const resultTotalPipeAfterCompress = document.getElementById("result-totalPipeAfterCompress");
 
   if (check.checked) {
     const validCarcass = refCarcass - invalidExtrusion;
     taxCompress = 100 - 100 / (validCarcass / refExtrusion);
 
-    resultCompress.innerHTML = `Compressão de ${taxCompress.toFixed(1)}%`;
+    const totalValidPipeAfterCompress = totalCarcass - invalidExtrusion - totalCarcass * (taxCompress / 100);
+
+    resultCompress.innerHTML = `Compressão de ${taxCompress.toFixed(1)}% atual`;
     resultComplement.innerHTML = `*equivalente a ${((validCarcass * taxCompress) / 100).toFixed(
       1
-    )} metros de tubo comprimido.`;
+    )} metros de tubo comprimido no momento.`;
+    resultTotalPipeAfterCompress.innerHTML = `Total de tubo válido ao final do processo: ${totalValidPipeAfterCompress.toFixed(
+      1
+    )}m`;
 
     console.log(
       `Taxa de compressão de ${taxCompress.toFixed(1)}%, equivalente a ${((validCarcass * taxCompress) / 100).toFixed(
         1
-      )} metros de tubo.`
+      )} metros de tubo.Total de tubo valido após compressão ${totalValidPipeAfterCompress}m`
     );
   } else {
     const validCarcass = totalCarcass - refCarcass - invalidExtrusion;
     taxCompress = 100 - 100 / (validCarcass / refExtrusion);
+    const totalValidPipeAfterCompress = totalCarcass - invalidExtrusion - totalCarcass * (taxCompress / 100);
 
-    resultCompress.innerHTML = `Compressão de ${taxCompress.toFixed(1)}%`;
+    resultCompress.innerHTML = `Compressão de ${taxCompress.toFixed(1)}% atual`;
     resultComplement.innerHTML = `*equivalente a ${((validCarcass * taxCompress) / 100).toFixed(
       1
-    )} metros de tubo comprimido.`;
+    )} metros de tubo comprimido no momento. `;
+    resultTotalPipeAfterCompress.innerHTML = `Total de tubo válido ao final do processo: ${totalValidPipeAfterCompress.toFixed(
+      1
+    )}m`;
 
     console.log(
       `Taxa de compressão de ${taxCompress.toFixed(1)}%, equivalente a ${((validCarcass * taxCompress) / 100).toFixed(
         2
-      )} metros de tubo.`
+      )} metros de tubo. Total de tubo valido após compressão ${totalValidPipeAfterCompress}m`
     );
   }
   document.getElementById("header").style.display = "none";
